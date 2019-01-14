@@ -429,7 +429,7 @@ final class StatusTableViewController: ChartsTableViewController {
                 }
 
                 // Battery HUD
-                hudView.batteryHUD.batteryLevel = self.deviceManager.pumpManager?.pumpBatteryChargeRemaining ?? UserDefaults.appGroup.statusExtensionContext?.batteryPercentage
+                hudView.batteryHUD.batteryLevel = self.deviceManager.pumpManager?.pumpBatteryChargeRemaining ?? UserDefaults.appGroup?.statusExtensionContext?.batteryPercentage
             }
 
             // Show/hide the table view rows
