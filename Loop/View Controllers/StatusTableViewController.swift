@@ -360,6 +360,7 @@ final class StatusTableViewController: ChartsTableViewController {
 
         workoutMode = deviceManager.loopManager.settings.glucoseTargetRangeSchedule?.overrideEnabledForContext(.workout)
         preMealMode = deviceManager.loopManager.settings.glucoseTargetRangeSchedule?.overrideEnabledForContext(.preMeal)
+        remoteTempTargetMode = deviceManager.loopManager.settings.glucoseTargetRangeSchedule?.overrideEnabledForContext(.preMeal)
 
         reloadGroup.notify(queue: .main) {
             /// Update the chart data
@@ -630,6 +631,14 @@ final class StatusTableViewController: ChartsTableViewController {
                 toolbarItems![6] = createWorkoutButtonItem(selected: workoutMode)
             } else {
                 toolbarItems![6].isEnabled = false
+            }
+        }
+    }
+    
+    private var remoteTempTargetMode: Bool? = nil {
+        didSet {
+            guard oldValue != remoteTempTargetMode else {
+                return
             }
         }
     }
